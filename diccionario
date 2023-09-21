@@ -1,5 +1,5 @@
 
-meme_dict = {"CRINGE":"Algo excepsionalmente embarazoso","LOL":"Una respuesta comun o algo gracioso",}
+meme_dict = {"CRINGE":"Algo excepsionalmente embarazoso","LOL":"Una respuesta comun o algo gracioso","shitpost":"Un meme gracioso",}
 word = input("Escribe una palabra que no entiendas(¡Con mayusculas!): ")
 
 if word in meme_dict.keys():
