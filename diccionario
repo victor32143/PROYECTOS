@@ -1,0 +1,11 @@
+
+meme_dict = {"CRINGE":"Algo excepsionalmente embarazoso","LOL":"Una respuesta comun o algo gracioso",}
+word = input("Escribe una palabra que no entiendas(¡Con mayusculas!): ")
+
+if word in meme_dict.keys():
+    #¿que debemos hacer si se encuentra la palabra?
+    print(meme_dict[word])
+    
+else:   
+    #¿que hacer si no se encuentra la palabra?
+    print("Error esa palabra no existe")
