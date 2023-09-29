@@ -1,0 +1,13 @@
+import random
+
+algo = "+-/*!&$#?=@abcdefghijklnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+
+digitos = int(input("¿cuantos digitos tendra la contraseña?"))
+
+contraseña = ""
+
+for i in range(digitos):
+
+    contraseña += random.choise(algo)
+
+    print (contraseña)
