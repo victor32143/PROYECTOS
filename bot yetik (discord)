@@ -1,0 +1,48 @@
+import discord
+from discord.ext import commands
+# import * - is a quick way to import all files in the library
+from bot_logic import *
+
+# The intents variable stores the bot's priviliges
+intents = discord.Intents.default()
+# Enabling the message-reading privelege
+intents.message_content = True
+# Creating a bot in the client variable and transferring it the priveleges
+bot = commands.Bot(command_prefix='/', intents=intents)
+
+
+# Once the bot is ready, it will print its name!
+@bot.event
+async def on_ready():
+    print(f'We have logged in as {bot.user}')
+
+
+# When the bot receives a message, it will send messages in the same channel!
+@bot.command()
+async def hello(ctx):
+    await ctx.send(f'Hola, soy un bot {bot.user}!')
+
+@bot.command()
+async def heh(ctx, count_heh = 5):
+    await ctx.send("he" * count_heh)
+
+@bot.command()
+async def joined(ctx, member: discord.Member):
+    """Says when a member joined."""
+    await ctx.send(f'{member.name} joined {discord.utils.format_dt(member.joined_at)}')
+
+@commands.command()
+async def join(self, ctx, *, channel: discord.VoiceChannel):
+        """Joins a voice channel"""
+
+        if ctx.voice_client is not None:
+            return await ctx.voice_client.move_to(channel)
+
+        await channel.connect()
+
+@bot.command()
+async def add(ctx, left: int, right: int):
+    """Adds two numbers together."""
+    await ctx.send(left + right)
+
+bot.run("tu token")
